@@ -16,7 +16,7 @@ public class OrderService {
     @Path("/{orderId}")
     public String getOrderById(
             @PathParam("orderId") String orderId) {
-        return "returning order with id " + orderId;
+        return "orders " + orderId;
     }
 
     @GET

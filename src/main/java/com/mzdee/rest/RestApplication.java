@@ -6,10 +6,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-@ApplicationPath("services")
+@ApplicationPath("api")
 public class RestApplication extends Application {
-
-
+	
     @Override
     public Set<Class<?>> getClasses() {
         return new HashSet(Arrays.asList(OrderService.class));
