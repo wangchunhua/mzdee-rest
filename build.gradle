@@ -1,0 +1,49 @@
+buildscript {
+    repositories {
+        jcenter()     
+    }
+    dependencies {
+        classpath 'org.akhikhl.gretty:gretty:1.4.2'
+    }
+}
+apply plugin: 'org.akhikhl.gretty'
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+apply plugin: 'war'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile group: 'commons-io', name: 'commons-io', version: '1.4'
+    compile group: 'log4j', name: 'log4j', version: '1.2.15', ext: 'jar'
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    testCompile group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-jdk-http', version: '2.25.1'
+    compile group: 'org.glassfish.jersey.test-framework', name: 'jersey-test-framework-core', version: '2.25.1'
+ 
+	compile group: 'org.glassfish.jersey', name: 'jax-rs-ri', version: '2.0-rc1'
+	compile group: 'org.glassfish.grizzly', name: 'grizzly-http-server', version: '2.3.16'
+	compile group: 'org.glassfish.jersey.core', name: 'jersey-server', version: '2.25.1'
+	compile group: 'com.google.collections', name: 'google-collections', version: '1.0-rc2'
+ }
+
+
+gretty {
+    httpPort = 8082
+}
+
+sourceSets {
+	main{
+		java {
+			srcDir 'src/main/java'
+		}
+	}
+    test {
+        java {
+            srcDirs = ['src/test/java']
+        }
+    }
+}
